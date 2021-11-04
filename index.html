@@ -60,19 +60,16 @@
       <div class="disclaimer-wrapper">
         <div>Calculator Disclaimer</div>
         <div>
-          <a class="drop-button collapsed" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          <a class="drop-button collapsed">
             <img alt="" src="img/arrow.png">
           </a>
-        </div>
-      </div>
-      <div class="collapse" id="collapseExample">
-        <div class="drop-text">
-          <span style="color: magenta">I borrowed this copy.</span> This loan calculator will help you determine the monthly payments on a loan. Simply enter the loan amount, term and interest rate in the fields below and click calculate. This calculator can be used for mortgage, auto, or any other fixed loan types.
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 <script>
@@ -124,7 +121,6 @@
   // Interest Rate Textbox Event
   interestRate.addEventListener("keydown", function (e) {
       var t = e.keyCode;
-      console.log(t);
       /[\D]/.test(e.key) && 190 !== t && 9 !== t && 8 !== t && 110 !== t && 37 !== t && 39 !== t && e.preventDefault();
   }),
   interestRate.addEventListener("input", function (t) {
@@ -137,7 +133,7 @@
       var t = formatPercent(e.target.value),
           n = (t.value, t.number);
           interestRate.value = n ? n.toFixed(3) + "%" : "";
-  }),
+  });
 
 
   // Calculate Button Event
