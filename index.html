@@ -15,11 +15,12 @@
         <label for="purchase-amount">Purchase amount</label>
         <input class="form-control" id="purchase-amount" autocomplete="off" pattern="[0-9]*" inputmode="numeric">
       </div>
-      
+
       <div class="form-group">
         <label for="down-payment">Down payment</label>
         <input id="down-payment" class="form-control" autocomplete="off" pattern="[0-9]*" inputmode="numeric">
       </div>
+
       <div class="form-row">
         <div class="form-group">
           <label for="loan-term">Loan term</label>
@@ -141,6 +142,12 @@
 
   // Calculate Button Event
   document.getElementById("calc-button").addEventListener("click", function (n) {
+    if(values.purchaseAmount === 0 || values.downPayment === 0 || values.loanTerm === 0 || values.interestRate === 0){
+      alert("Please add the values first");
+      
+      return false;
+    }
+
       for (var a = document.getElementsByName("loanTermOptions"), r = "month", u = 0; u < a.length; u++){
           if (a[u].checked) {
               r = a[u].value;
@@ -148,45 +155,26 @@
           }
       }
 
-      // var interest = values.interestRate / 100;
-      // var tradeinValue = 1000;
-      // var salesTax = 5/100;
-
-      // "month" === r && (t = ((values.purchaseAmount - values.downPayment) * o) / (1 - Math.pow(1 + o, -1 * values.loanTerm)));
-      // "year" === r && (t = ((values.purchaseAmount - values.downPayment) * o) / (1 - Math.pow(1 + o, 12 * values.loanTerm * -1)));
-      // console.log(values);
-      // var total = (((values.purchaseAmount-values.downPayment-tradeinValue)+((values.purchaseAmount-tradeinValue)*salesTax))*(interest/12))/(1-(1+interest/12) ** (-loanTerm*1))
-      
-      var vehiclePrice = Number(document.getElementById("purchase-amount").value.replace(/[$,]/g,''));
-      var downPayment = Number(document.getElementById("down-payment").value.replace(/[$,]/g,''));
+      var interest = values.interestRate / 100;
       var tradeinValue = 1000;
       var salesTax = 5/100;
-      var loanTerm = Number(document.getElementById("down-payment").value.replace(/[$,]/g,''));
-      var interestRate = Number(document.getElementById("down-payment").value.replace(/[$,]/g,''))/100;
-      var total = (((vehiclePrice-downPayment-tradeinValue)+((vehiclePrice-tradeinValue)*salesTax))*(interestRate/12))/(1-(1+interestRate/12) ** (-loanTerm*1));
-      console.log(total.toFixed(2));
 
-      document.getElementById("calculate-result-text").innerText = "$" + total.toLocaleString("en-US", { maximumFractionDigits: 2 });
+
+      var a = 0;
+      if(r === "month"){
+        a = (-values.loanTerm*1);
+      }
+      else {
+        a = (-values.loanTerm*12);
+      }
+
+      var total = (((values.purchaseAmount-values.downPayment-tradeinValue)+((values.purchaseAmount-tradeinValue)*salesTax))*(interest/12))/(1-(1+interest/12) ** a)
+     
+      document.getElementById("calculate-result-text").innerText = "$" + total.toFixed(2);
       document.getElementById("result-panel").style.visibility = "visible";
   });
 
 
-  /*var mode = "year";
-  var vehiclePrice = Number(document.getElementById("purchase-amount").value.replace(/[$,]/g,''));
-
-  console.log(formatAmount("3500"));
-  
-  var downPayment = Number(document.getElementById("down-payment").value.replace(/[$,]/g,''));
-  var tradeinValue = 1000;
-  var salesTax = 5/100;
-  var loanTerm = Number(document.getElementById("down-payment").value.replace(/[$,]/g,''));
-  var interestRate = Number(document.getElementById("down-payment").value.replace(/[$,]/g,''))/100;
-  var total = (((vehiclePrice-downPayment-tradeinValue)+((vehiclePrice-tradeinValue)*salesTax))*(interestRate/12))/(1-(1+interestRate/12) ** (-loanTerm*1));
-  console.log(total.toFixed(2));
-
-  document.getElementById('calc-button').onclick = function() {
-    
-  };*/
 </script>
 
 </body>
