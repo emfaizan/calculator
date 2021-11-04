@@ -9,8 +9,15 @@
   <link href="assets/css/styles.css" rel="stylesheet">
 </head>
 <body>
+  <div class="main-wrapper">
+  <div class="intro-section">
+    <h1>Personal Loan Calculator</h1>
+    <p><span style="color: magenta">I borrowed this copy.</span> This loan calculator will help you determine the monthly payments on a loan. Simply enter the loan amount, term and interest rate in the fields below and click calculate. This calculator can be used for mortgage, auto, or any other fixed loan types. </p>
+  </div>
   <div id="loan-calculator">
+
     <div class="form-wrapper">
+      <h2>What is my monthly payment?</h2>
       <div class="form-group">
         <label for="purchase-amount">Purchase amount</label>
         <input class="form-control" id="purchase-amount" autocomplete="off" pattern="[0-9]*" inputmode="numeric">
@@ -57,19 +64,24 @@
         </div>
         
       <div class="calculator-disclaimer">
-      <div class="disclaimer-wrapper">
+      <div class="disclaimer-wrapper" id="disclaimer">
         <div>Calculator Disclaimer</div>
         <div>
-          <a class="drop-button collapsed">
-            <img alt="" src="img/arrow.png">
+          <a class="drop-button collapsed" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            <img alt="" src="assets/images/arrow.png" height="20">
           </a>
+        </div>
+      </div>
+      <div class="collapse" id="disclaimerContent" style="display:none;margin:5px 0 10px;">
+        <div class="drop-text">
+          <span style="color: magenta">I borrowed this copy.</span> This loan calculator will help you determine the monthly payments on a loan. Simply enter the loan amount, term and interest rate in the fields below and click calculate. This calculator can be used for mortgage, auto, or any other fixed loan types.
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
+</div>
 
 
 <script>
@@ -169,6 +181,19 @@
       document.getElementById("calculate-result-text").innerText = "$" + total.toFixed(2);
       document.getElementById("result-panel").style.visibility = "visible";
   });
+
+
+
+  document.getElementById("disclaimer").addEventListener('click', function (event) {
+
+    // Get the content
+    var elem = document.getElementById("disclaimerContent");
+    if (!elem) return;
+
+    // Toggle the content
+    elem.classList.toggle('is-visible');
+
+  }, false);
 
 
 </script>

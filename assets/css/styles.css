@@ -6,12 +6,19 @@
 
 /* CSS RESET */
 html{box-sizing:border-box;font-size:62.5%}*,:after,:before{box-sizing:inherit}
-button,div,h1,h2,h3,h4,h5,h6,input,p{font-family:"Raleway",sans-serif}
+button,div,input,p{font-family:"Raleway",sans-serif}
 
-body{font-size:1.6rem;background-color:#ecf0f1;margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6 {font-family:Taviraj, sans-serif}
 
+body{font-size:1.6rem;background-color:#fff;margin:0;padding:0;}
 
-#loan-calculator{margin:0 auto; width:90%; max-width:1200px;padding:20px;display:flex;justify-content:space-between; flex-wrap:wrap;}
+.main-wrapper {margin:0 auto; width:90%; max-width:1140px;padding:20px;}
+
+.intro-section h1 {color:#0b3d5e}
+.intro-section p {font-size:18px; line-height:1.5;color:#777;}
+
+#loan-calculator{display:flex;justify-content:space-between; flex-wrap:wrap;}
+#loan-calculator h2 {color:#38afa9; margin:50px 0 40px;}
 #loan-calculator .form-wrapper{width:400px; flex:0 0 400px; max-width:100%;}
 #loan-calculator .form-wrapper .form-row{display:flex;align-items:flex-end;padding-bottom:30px}
 #loan-calculator .form-group{padding-bottom:30px}
@@ -21,7 +28,7 @@ body{font-size:1.6rem;background-color:#ecf0f1;margin:0;padding:0;}
 #loan-calculator .form-button{border:none;height:45px;flex:1 1;font-size:16px;background:#38afa9;color:#0f3755;font-weight: 800;}
 #loan-calculator .form-check-label{font-weight:600;color:#0b3d5e}
 #loan-calculator .form-group label{display:inline-block;font-size:16px;line-height:20px;margin-bottom:4px;font-weight: 500;}
-#loan-calculator .form-control{display:block;width:100%;height:45px;padding:.375rem .75rem;font-size:1rem;font-weight:700;font-size:18px;line-height:1.5;color:#0b3d5e;background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+#loan-calculator .form-control{display:block;width:100%;height:40px;padding:.375rem .75rem;font-size:1rem;font-weight:700;font-size:18px;line-height:1.5;color:#0b3d5e;background-color:#fff;background-clip:padding-box;border:1px solid #0b3d5e;border-radius:.25rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
 #loan-calculator .form-control:focus{outline:0; border-color:#38afa9}
 #loan-calculator .button-group{display:flex;justify-content:space-between}
 #loan-calculator .button-group .form-button{flex:1 1}
@@ -33,7 +40,10 @@ body{font-size:1.6rem;background-color:#ecf0f1;margin:0;padding:0;}
 
 .payment-result {color:#0b3d5e;font-family: Taviraj;font-size: 60px;font-weight: 600;border-bottom: 5px solid #38afa9;line-height: 1;width: fit-content;}
 
-#loan-calculator .calculator-disclaimer{margin-top:100px;font-size:18px;padding:10px 0;border-top:1px solid #cbd5db;border-bottom:1px solid #cbd5db}
+#loan-calculator .calculator-disclaimer{margin-top:100px;font-size:18px;padding:0;border-top:1px solid #cbd5db;border-bottom:1px solid #cbd5db;}
+#loan-calculator .calculator-disclaimer .disclaimer-wrapper {cursor:pointer;display:flex;justify-content: space-between;align-items: center;padding: 10px 5px;}
+#loan-calculator .calculator-disclaimer .disclaimer-wrapper:hover {background:#f7f7f7;}
+#loan-calculator .calculator-disclaimer .is-visible {display:block !important; line-height: 1.4; padding:5px 0 0;}
 
 .result-panel label {display: block;font-weight: 500;margin-bottom: 35px;}
 .form-check-label {margin-bottom: 0;text-transform: uppercase;font-size: 14px;font-weight: 700 !important;margin-left: 8px;}
